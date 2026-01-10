@@ -90,42 +90,125 @@
 /* Custom component styles */
 @layer components {
   .card {
-    @apply bg-gray-900/50 border border-gray-800 rounded-xl p-6;
+    @apply bg-gray-900/50 border border-gray-800 rounded-xl p-6 backdrop-blur-sm;
   }
-  
+
   .card-hover {
-    @apply hover:border-gray-700 hover:bg-gray-900/70 transition-all duration-300;
+    @apply hover:border-gray-700 hover:bg-gray-900/70 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10;
   }
-  
+
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl;
+    @apply px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-purple-500/25;
   }
-  
+
   .gradient-text {
     @apply bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent;
   }
-  
+
   .text-electric-blue {
     @apply text-blue-400;
   }
-  
+
   .text-electric-purple {
     @apply text-purple-400;
   }
-  
+
   .text-neon-pink {
     @apply text-pink-400;
   }
-  
+
   .text-neon-cyan {
     @apply text-cyan-400;
   }
-  
+
   .bg-card {
     @apply bg-gray-800;
   }
-  
+
   .border-border-color {
     @apply border-gray-700;
   }
+}
+
+/* Sexy animations and effects */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.glow-effect {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient borders */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(45deg, #FF1B8D, #8B5CF6, #06B6D4);
+  padding: 2px;
+  border-radius: 12px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: linear-gradient(135deg, #1a1a1a, #2d1b69);
+  border-radius: 10px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #FF1B8D, #8B5CF6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #FF1B8D, #8B5CF6, #06B6D4);
 } 

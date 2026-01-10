@@ -8,6 +8,8 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
+    { name: 'Lottery', href: '/lottery', icon: Zap },
+    { name: 'About', href: '/about', icon: Trophy },
     { name: 'All Winners', href: '/winners', icon: Trophy },
     { name: 'MemeHaus', href: 'https://memehaus.vercel.app/', icon: Zap, external: true },
   ];
